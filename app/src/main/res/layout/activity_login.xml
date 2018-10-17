@@ -1,9 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="30dp"
+    android:background="@drawable/background"
     tools:context=".Login">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/logo"
+            android:id="@+id/imgLogin"
+            android:layout_width="200dp"
+            android:layout_height="200dp"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/imgLogin"
+            android:id="@+id/tiLayout1"
+            android:hint="Email"
+            android:textColorHint="#267c5f"
+            android:gravity="center"
+            app:passwordToggleEnabled="true"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <EditText
+                android:textStyle="bold"
+                android:textColor="#267c5f"
+                android:textSize="20sp"
+                android:textColorHint="#267c5f"
+                android:hint="Email"
+                android:id="@+id/etEmail"
+                android:inputType="textEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/tiLayout1"
+            android:id="@+id/tiLayout2"
+            android:hint="Password"
+            android:textColorHint="#267c5f"
+            android:gravity="center"
+            app:passwordToggleEnabled="true"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <EditText
+                android:hint="Password"
+                android:textStyle="bold"
+                android:textColor="#267c5f"
+                android:textSize="20sp"
+                android:textColorHint="#267c5f"
+                android:id="@+id/etPassword"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:textSize="25sp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:text="LOGIN"
+            android:layout_marginTop="50dp"
+            android:layout_below="@+id/tiLayout2"
+            android:background="@drawable/round_button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <Button
+            android:textSize="25sp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:text="REGISTER"
+            android:layout_below="@+id/tvDashedLines"
+            android:background="@drawable/round_button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <TextView
+            android:id="@+id/tvDashedLines"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/colorAccent"
+            android:gravity="center"
+            android:layout_below="@+id/btnLogin"
+            android:layout_centerHorizontal="true"
+            android:text="------------Or-----------"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

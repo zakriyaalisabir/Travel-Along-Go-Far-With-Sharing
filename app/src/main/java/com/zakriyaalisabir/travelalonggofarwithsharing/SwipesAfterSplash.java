@@ -33,7 +33,8 @@ public class SwipesAfterSplash extends AppCompatActivity {
         btnS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                startActivity(new Intent(getApplicationContext(),Login.class));
+                finish();
             }
         });
     }
