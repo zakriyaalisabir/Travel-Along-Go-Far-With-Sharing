@@ -37,10 +37,9 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:layout_marginTop="15dp"
             android:layout_below="@+id/tiLayout1"
             android:id="@+id/tiLayout2"
-            android:hint="Email"
+            android:hint="Email (Optional)"
             android:textColorHint="#267c5f"
             android:gravity="center"
             app:passwordToggleEnabled="true"
@@ -52,7 +51,7 @@
                 android:textColor="#267c5f"
                 android:textSize="20sp"
                 android:textColorHint="#267c5f"
-                android:hint="Email"
+                android:hint="Email (Optional)"
                 android:id="@+id/etEmail"
                 android:inputType="textEmailAddress"
                 android:layout_width="match_parent"
@@ -61,7 +60,6 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:layout_marginTop="15dp"
             android:layout_below="@+id/tiLayout2"
             android:id="@+id/tiLayout3"
             android:hint="Phone"
@@ -86,7 +84,6 @@
 
 
         <android.support.design.widget.TextInputLayout
-            android:layout_marginTop="15dp"
             android:layout_below="@+id/tiLayout3"
             android:id="@+id/tiLayout4"
             android:hint="CNIC"
@@ -110,7 +107,6 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            android:layout_marginTop="15dp"
             android:layout_below="@+id/tiLayout4"
             android:id="@+id/tiLayout5"
             android:hint="Password"
@@ -133,7 +129,74 @@
 
         </android.support.design.widget.TextInputLayout>
 
+        <android.support.design.widget.TextInputLayout
+            android:layout_below="@+id/tiLayout5"
+            android:id="@+id/tiLayout6"
+            android:hint="Car Name (For Provider)"
+            android:textColorHint="#267c5f"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <EditText
+                android:hint="Car Name (For Provider)"
+                android:textStyle="bold"
+                android:textColor="#267c5f"
+                android:textSize="20sp"
+                android:textColorHint="#267c5f"
+                android:id="@+id/etCarName"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_below="@+id/tiLayout6"
+            android:id="@+id/tiLayout7"
+            android:hint="Car Model (For Provider)"
+            android:textColorHint="#267c5f"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <EditText
+                android:hint="Car Model (For Provider)"
+                android:textStyle="bold"
+                android:textColor="#267c5f"
+                android:textSize="20sp"
+                android:textColorHint="#267c5f"
+                android:id="@+id/etCarModel"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_below="@+id/tiLayout7"
+            android:id="@+id/tiLayout8"
+            android:hint="Car Number (For Provider)"
+            android:textColorHint="#267c5f"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <EditText
+                android:hint="Car Number (For Provider)"
+                android:textStyle="bold"
+                android:textColor="#267c5f"
+                android:textSize="20sp"
+                android:textColorHint="#267c5f"
+                android:id="@+id/etCarNumber"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+        </android.support.design.widget.TextInputLayout>
+
         <Button
+            android:layout_marginTop="5dp"
             android:id="@+id/btnRegister"
             android:textSize="25sp"
             android:textColor="#ffffff"
@@ -141,8 +204,7 @@
             android:gravity="center"
             android:textAlignment="center"
             android:text="REGISTER"
-            android:layout_marginTop="50dp"
-            android:layout_below="@+id/tiLayout5"
+            android:layout_below="@+id/tiLayout8"
             android:background="@drawable/round_button"
             android:layout_width="match_parent"
             android:layout_height="50dp" />

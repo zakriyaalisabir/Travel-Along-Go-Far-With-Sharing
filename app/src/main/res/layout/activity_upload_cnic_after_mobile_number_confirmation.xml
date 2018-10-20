@@ -1,9 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="30dp"
+    android:background="@drawable/background"
     tools:context=".UploadCnicAfterMobileNumberConfirmation">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivCNIC"
+            android:src="@drawable/background"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scaleType="fitXY"/>
+
+        <Button
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/ivCNIC"
+            android:id="@+id/btnUpload"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:text="UPLOAD"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/round_button"/>
+
+        <Button
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/btnUpload"
+            android:id="@+id/btnCAmera"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:text="CAMERA"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/round_button"/>
+
+        <Button
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/btnCAmera"
+            android:id="@+id/btnGallery"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:text="GALLERY"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/round_button"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

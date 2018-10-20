@@ -8,6 +8,9 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -25,13 +28,14 @@
         </activity>
         <activity android:name=".SwipesAfterSplash" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Dashboard"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme" />
         <activity android:name=".Login" />
         <activity android:name=".Register" />
         <activity android:name=".FirstTimeLoginForMobileNumberVerification" />
-        <activity android:name=".UploadCnicAfterMobileNumberConfirmation"></activity>
+        <activity android:name=".UploadCnicAfterMobileNumberConfirmation" />
+        <activity android:name=".ForgetPassword"></activity>
     </application>
 
 </manifest>

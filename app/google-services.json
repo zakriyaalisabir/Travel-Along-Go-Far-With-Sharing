@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "313478490408",
+    "firebase_url": "https://travelalonggofarwithsharing.firebaseio.com",
+    "project_id": "travelalonggofarwithsharing",
+    "storage_bucket": "travelalonggofarwithsharing.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:313478490408:android:0f0f26753833a9fe",
+        "android_client_info": {
+          "package_name": "com.zakriyaalisabir.travelalonggofarwithsharing"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "313478490408-fnmfmt0omvr6e29lidaujdo74t7cq96b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zakriyaalisabir.travelalonggofarwithsharing",
+            "certificate_hash": "fc97e5b5ec1e693bea4eeb2a1fe548b0324b9ba6"
+          }
+        },
+        {
+          "client_id": "313478490408-rp3b3m1pra6k7s6ht8gla7q2lco8r1fu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtoYo-ENjsiiZ0sc9fIbPYa32MRT-_uqs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "313478490408-rp3b3m1pra6k7s6ht8gla7q2lco8r1fu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

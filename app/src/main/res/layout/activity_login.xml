@@ -113,6 +113,7 @@
 
 
         <TextView
+            android:clickable="true"
             android:id="@+id/tvForgetPassword"
             android:textAlignment="center"
             android:textStyle="bold"
