@@ -83,17 +83,6 @@
             android:layout_width="match_parent"
             android:layout_height="50dp" />
 
-        <Button
-            android:textSize="25sp"
-            android:textColor="#ffffff"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:textAlignment="center"
-            android:text="REGISTER"
-            android:layout_below="@+id/tvDashedLines"
-            android:background="@drawable/round_button"
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
 
         <TextView
             android:id="@+id/tvDashedLines"
@@ -105,6 +94,34 @@
             android:layout_below="@+id/btnLogin"
             android:layout_centerHorizontal="true"
             android:text="------------Or-----------"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <Button
+            android:textSize="25sp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:text="REGISTER"
+            android:id="@+id/btnRegister"
+            android:layout_below="@+id/tvDashedLines"
+            android:background="@drawable/round_button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+
+        <TextView
+            android:id="@+id/tvForgetPassword"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/colorAccent"
+            android:gravity="center"
+            android:layout_below="@+id/btnRegister"
+            android:layout_centerHorizontal="true"
+            android:text="Forget Password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

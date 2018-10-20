@@ -1,9 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="30dp"
+    android:background="@drawable/background"
     tools:context=".Register">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tiLayout1"
+            android:hint="Name"
+            android:textColorHint="#267c5f"
+            android:gravity="center"
+            app:passwordToggleEnabled="true"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <EditText
+                android:textStyle="bold"
+                android:textColor="#267c5f"
+                android:textSize="20sp"
+                android:textColorHint="#267c5f"
+                android:hint="Name"
+                android:id="@+id/etName"
+                android:inputType="textEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/tiLayout1"
+            android:id="@+id/tiLayout2"
+            android:hint="Email"
+            android:textColorHint="#267c5f"
+            android:gravity="center"
+            app:passwordToggleEnabled="true"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <EditText
+                android:textStyle="bold"
+                android:textColor="#267c5f"
+                android:textSize="20sp"
+                android:textColorHint="#267c5f"
+                android:hint="Email"
+                android:id="@+id/etEmail"
+                android:inputType="textEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/tiLayout2"
+            android:id="@+id/tiLayout3"
+            android:hint="Phone"
+            android:textColorHint="#267c5f"
+            android:gravity="center"
+            app:passwordToggleEnabled="true"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <EditText
+                android:textStyle="bold"
+                android:textColor="#267c5f"
+                android:textSize="20sp"
+                android:textColorHint="#267c5f"
+                android:hint="Phone"
+                android:id="@+id/etPhone"
+                android:inputType="textEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/tiLayout3"
+            android:id="@+id/tiLayout4"
+            android:hint="CNIC"
+            android:textColorHint="#267c5f"
+            android:gravity="center"
+            app:passwordToggleEnabled="true"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <EditText
+                android:textStyle="bold"
+                android:textColor="#267c5f"
+                android:textSize="20sp"
+                android:textColorHint="#267c5f"
+                android:hint="CNIC"
+                android:id="@+id/etCNIC"
+                android:inputType="textEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/tiLayout4"
+            android:id="@+id/tiLayout5"
+            android:hint="Password"
+            android:textColorHint="#267c5f"
+            android:gravity="center"
+            app:passwordToggleEnabled="true"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <EditText
+                android:hint="Password"
+                android:textStyle="bold"
+                android:textColor="#267c5f"
+                android:textSize="20sp"
+                android:textColorHint="#267c5f"
+                android:id="@+id/etPassword"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:textSize="25sp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:text="REGISTER"
+            android:layout_marginTop="50dp"
+            android:layout_below="@+id/tiLayout5"
+            android:background="@drawable/round_button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
