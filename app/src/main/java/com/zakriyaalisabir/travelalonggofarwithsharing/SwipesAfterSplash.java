@@ -99,6 +99,10 @@ public class SwipesAfterSplash extends AppCompatActivity {
                         if(n<imagesForSwiping.length){
                             imv.setImageResource(imagesForSwiping[n]);
                         }
+                        if(n==imagesForSwiping.length){
+                            startActivity(new Intent(getApplicationContext(),Login.class));
+                            finish();
+                        }
                     }
                     return true;
                 }

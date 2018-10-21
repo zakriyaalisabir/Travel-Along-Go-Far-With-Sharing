@@ -11,6 +11,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -26,6 +29,9 @@ public class FirstTimeLoginForMobileNumberVerification extends AppCompatActivity
     private EditText etCn,etp;
 
     private String cellNo;
+    private String pinAsMsg,enteredPin;
+
+    private DatabaseReference mRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +46,8 @@ public class FirstTimeLoginForMobileNumberVerification extends AppCompatActivity
 
         btnC.setVisibility(View.INVISIBLE);
         etp.setVisibility(View.INVISIBLE);
+
+        mRef= FirebaseDatabase.getInstance().getReference("confiredPhoneNumbers");
 
         countryCodesList=new ArrayList<String>();
 
@@ -69,16 +77,21 @@ public class FirstTimeLoginForMobileNumberVerification extends AppCompatActivity
                     SmsManager smsManager=SmsManager.getDefault();
 
                     Random random=new Random();
-                    int a=random.nextInt();
-                    int b=random.nextInt();
-                    int c=random.nextInt();
-                    int d=random.nextInt();
+                    int a=random.nextInt(9);
+                    int b=random.nextInt(9);
+                    int c=random.nextInt(9);
+                    int d=random.nextInt(9);
 
-                    String msg=""+a+b+c+d;
+                    pinAsMsg=""+a+b+c+d;
 
-                    smsManager.sendTextMessage(cellNo,null,msg,null,null);
+                    smsManager.sendTextMessage(cellNo,null,pinAsMsg,null,null);
 
                     Toast.makeText(getApplicationContext(), "Pin Sent",Toast.LENGTH_LONG).show();
+
+                    etp.setVisibility(View.VISIBLE);
+                    btnC.setVisibility(View.VISIBLE);
+                    btnP.setText("RESEND PIN");
+
                 }catch (Exception e){
                     Toast.makeText(getApplicationContext(), "Failed to send pin",Toast.LENGTH_LONG).show();
                     e.printStackTrace();
@@ -91,7 +104,18 @@ public class FirstTimeLoginForMobileNumberVerification extends AppCompatActivity
         btnC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),UploadCnicAfterMobileNumberConfirmation.class));
+
+                enteredPin=etp.getText().toString();
+
+                if(enteredPin.equals(pinAsMsg)){
+                    mRef.child(cellNo).setValue("confirmed");
+                    startActivity(new Intent(getApplicationContext(),UploadCnicAfterMobileNumberConfirmation.class));
+                    finish();
+                }else {
+                    Toast.makeText(getApplicationContext(),"Invalid Pin",Toast.LENGTH_LONG).show();
+                    return;
+                }
+
             }
         });
     }

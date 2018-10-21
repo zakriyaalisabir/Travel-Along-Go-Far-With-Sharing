@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="30dp"
+    android:padding="15dp"
     android:background="@drawable/background"
     tools:context=".Register">
 
@@ -30,7 +30,7 @@
                 android:textColorHint="#267c5f"
                 android:hint="Name"
                 android:id="@+id/etName"
-                android:inputType="textEmailAddress"
+                android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="50dp" />
 
@@ -76,7 +76,8 @@
                 android:textColorHint="#267c5f"
                 android:hint="Phone"
                 android:id="@+id/etPhone"
-                android:inputType="textEmailAddress"
+                android:inputType="number"
+                android:maxLength="13"
                 android:layout_width="match_parent"
                 android:layout_height="50dp" />
 
@@ -100,7 +101,8 @@
                 android:textColorHint="#267c5f"
                 android:hint="CNIC"
                 android:id="@+id/etCNIC"
-                android:inputType="textEmailAddress"
+                android:inputType="number"
+                android:maxLength="13"
                 android:layout_width="match_parent"
                 android:layout_height="50dp" />
 
@@ -108,6 +110,30 @@
 
         <android.support.design.widget.TextInputLayout
             android:layout_below="@+id/tiLayout4"
+            android:id="@+id/tiLayout9"
+            android:hint="City"
+            android:textColorHint="#267c5f"
+            android:gravity="center"
+            app:passwordToggleEnabled="true"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <EditText
+                android:textStyle="bold"
+                android:textColor="#267c5f"
+                android:textSize="20sp"
+                android:textColorHint="#267c5f"
+                android:hint="City"
+                android:id="@+id/etCity"
+                android:inputType="text"
+                android:maxLength="20"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_below="@+id/tiLayout9"
             android:id="@+id/tiLayout5"
             android:hint="Password"
             android:textColorHint="#267c5f"
@@ -145,7 +171,7 @@
                 android:textSize="20sp"
                 android:textColorHint="#267c5f"
                 android:id="@+id/etCarName"
-                android:inputType="textPassword"
+                android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="50dp" />
 
@@ -167,7 +193,7 @@
                 android:textSize="20sp"
                 android:textColorHint="#267c5f"
                 android:id="@+id/etCarModel"
-                android:inputType="textPassword"
+                android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="50dp" />
 
@@ -189,7 +215,7 @@
                 android:textSize="20sp"
                 android:textColorHint="#267c5f"
                 android:id="@+id/etCarNumber"
-                android:inputType="textPassword"
+                android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="50dp" />
 
@@ -197,7 +223,7 @@
 
         <Button
             android:layout_marginTop="5dp"
-            android:id="@+id/btnRegister"
+            android:id="@+id/btnRegisterConfirm"
             android:textSize="25sp"
             android:textColor="#ffffff"
             android:textStyle="bold"
