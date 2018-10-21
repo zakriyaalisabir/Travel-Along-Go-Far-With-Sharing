@@ -99,7 +99,7 @@ public class Login extends AppCompatActivity {
                                                 Toast.makeText(getApplicationContext(),"User successfully Loged in ",Toast.LENGTH_LONG).show();
 
                                                 if(confirmationStatus.equals("confirmed")){
-//                                                    startActivity(new Intent(getApplicationContext(),Dashboard.class));
+                                                    startActivity(new Intent(getApplicationContext(),Dashboard.class));
                                                 }else {
                                                     startActivity(new Intent(getApplicationContext(),FirstTimeLoginForMobileNumberVerification.class));
                                                 }
@@ -155,6 +155,9 @@ public class Login extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        mRef1= FirebaseDatabase.getInstance().getReference("users");
+
         if(currentUser!=null){
             mRef1.child(currentUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
@@ -176,7 +179,7 @@ public class Login extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(),"User successfully Loged in ",Toast.LENGTH_LONG).show();
 
                                 if(confirmationStatus.equals("confirmed")){
-//                                    startActivity(new Intent(getApplicationContext(),Dashboard.class));
+                                    startActivity(new Intent(getApplicationContext(),Dashboard.class));
                                 }else {
                                     startActivity(new Intent(getApplicationContext(),FirstTimeLoginForMobileNumberVerification.class));
                                 }

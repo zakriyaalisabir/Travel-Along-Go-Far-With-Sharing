@@ -5,7 +5,7 @@
     android:layout_height="50dp"
     android:textColor="#000000"
     android:text="abc"
-    android:paddingTop="5dp"
+    android:paddingTop="10dp"
     android:textAlignment="textStart"
     android:gravity="start"
     android:textStyle="bold"

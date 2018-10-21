@@ -114,6 +114,7 @@
 
 
         <TextView
+            android:layout_marginTop="10dp"
             android:clickable="true"
             android:id="@+id/tvForgetPassword"
             android:textAlignment="center"

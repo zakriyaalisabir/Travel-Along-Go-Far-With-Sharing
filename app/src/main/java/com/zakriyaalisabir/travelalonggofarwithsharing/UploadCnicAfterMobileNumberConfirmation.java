@@ -130,7 +130,7 @@ public class UploadCnicAfterMobileNumberConfirmation extends AppCompatActivity {
                                     progressDialog.setMessage("Uploaded "+(int)progress+"%");
 
                                     if(progress>=100){
-//                                        startActivity(new Intent(getApplicationContext(),Dashboard.class));
+                                        startActivity(new Intent(getApplicationContext(),Dashboard.class));
                                         finish();
                                     }
                                 }
