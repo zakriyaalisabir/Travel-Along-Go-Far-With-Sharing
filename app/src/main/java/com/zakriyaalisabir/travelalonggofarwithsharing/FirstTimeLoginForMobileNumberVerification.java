@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -32,6 +33,7 @@ public class FirstTimeLoginForMobileNumberVerification extends AppCompatActivity
     private String pinAsMsg,enteredPin;
 
     private DatabaseReference mRef;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,7 @@ public class FirstTimeLoginForMobileNumberVerification extends AppCompatActivity
         etp.setVisibility(View.INVISIBLE);
 
         mRef= FirebaseDatabase.getInstance().getReference("confiredPhoneNumbers");
+        mAuth=FirebaseAuth.getInstance();
 
         countryCodesList=new ArrayList<String>();
 
@@ -118,5 +121,13 @@ public class FirstTimeLoginForMobileNumberVerification extends AppCompatActivity
 
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        mAuth.signOut();
+        startActivity(new Intent(getApplicationContext(),Login.class));
+        finish();
     }
 }

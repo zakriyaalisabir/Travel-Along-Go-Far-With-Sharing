@@ -185,4 +185,12 @@ public class UploadCnicAfterMobileNumberConfirmation extends AppCompatActivity {
         }
 
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        mAuth.signOut();
+        startActivity(new Intent(getApplicationContext(),Login.class));
+        finish();
+    }
 }

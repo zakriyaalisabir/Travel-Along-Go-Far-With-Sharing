@@ -8,11 +8,20 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class SwipesAfterSplash extends AppCompatActivity {
 
@@ -23,6 +32,9 @@ public class SwipesAfterSplash extends AppCompatActivity {
     private int n=0;
 
     private Button btnS;
+
+    private FirebaseAuth mAuth;
+    private DatabaseReference mRef1,mRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +50,7 @@ public class SwipesAfterSplash extends AppCompatActivity {
         btnS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),Login.class));
+                startActivity(new Intent(getApplicationContext(),PreLogin.class));
                 finish();
             }
         });
@@ -100,7 +112,7 @@ public class SwipesAfterSplash extends AppCompatActivity {
                             imv.setImageResource(imagesForSwiping[n]);
                         }
                         if(n==imagesForSwiping.length){
-                            startActivity(new Intent(getApplicationContext(),Login.class));
+                            startActivity(new Intent(getApplicationContext(),PreLogin.class));
                             finish();
                         }
                     }
