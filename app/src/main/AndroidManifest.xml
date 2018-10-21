@@ -28,10 +28,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".SwipesAfterSplash" />
-        <activity
-            android:name=".Dashboard"
-            android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme" />
         <activity android:name=".Login" />
         <activity android:name=".Register" />
         <activity android:name=".FirstTimeLoginForMobileNumberVerification" />

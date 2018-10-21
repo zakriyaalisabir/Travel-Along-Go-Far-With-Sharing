@@ -35,6 +35,8 @@ public class Login extends AppCompatActivity {
     private DatabaseReference mRef,mRef1;
     private FirebaseUser user;
 
+    private ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +52,7 @@ public class Login extends AppCompatActivity {
         mRef= FirebaseDatabase.getInstance().getReference("confiredPhoneNumbers");
         mRef1= FirebaseDatabase.getInstance().getReference("users");
 
-        final ProgressDialog progressDialog=new ProgressDialog(Login.this);
+        progressDialog=new ProgressDialog(Login.this);
         progressDialog.setTitle("Signing in ");
         progressDialog.setMessage("Please wait ....");
         progressDialog.setCancelable(false);
@@ -97,7 +99,7 @@ public class Login extends AppCompatActivity {
                                                 Toast.makeText(getApplicationContext(),"User successfully Loged in ",Toast.LENGTH_LONG).show();
 
                                                 if(confirmationStatus.equals("confirmed")){
-                                                    startActivity(new Intent(getApplicationContext(),Dashboard.class));
+//                                                    startActivity(new Intent(getApplicationContext(),Dashboard.class));
                                                 }else {
                                                     startActivity(new Intent(getApplicationContext(),FirstTimeLoginForMobileNumberVerification.class));
                                                 }
@@ -147,5 +149,57 @@ public class Login extends AppCompatActivity {
             }
         });
 
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser!=null){
+            mRef1.child(currentUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    UserInfo userInfo=dataSnapshot.getValue(UserInfo.class);
+
+                    String cellNo=userInfo.phone;
+
+                    Log.e("cellNo", " = "+cellNo );
+
+                    if(!cellNo.isEmpty()){
+                        mRef.child(cellNo).addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                                String confirmationStatus=dataSnapshot.getValue(String.class);
+                                Log.e("confirmationStatus", " = "+confirmationStatus );
+
+                                Toast.makeText(getApplicationContext(),"User successfully Loged in ",Toast.LENGTH_LONG).show();
+
+                                if(confirmationStatus.equals("confirmed")){
+//                                    startActivity(new Intent(getApplicationContext(),Dashboard.class));
+                                }else {
+                                    startActivity(new Intent(getApplicationContext(),FirstTimeLoginForMobileNumberVerification.class));
+                                }
+                                progressDialog.dismiss();
+
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });
+                    }
+
+
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
     }
 }

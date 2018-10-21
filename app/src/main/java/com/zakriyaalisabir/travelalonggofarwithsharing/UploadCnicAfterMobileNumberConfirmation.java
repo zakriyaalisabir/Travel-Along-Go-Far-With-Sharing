@@ -128,8 +128,11 @@ public class UploadCnicAfterMobileNumberConfirmation extends AppCompatActivity {
                                     double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot
                                             .getTotalByteCount());
                                     progressDialog.setMessage("Uploaded "+(int)progress+"%");
-                                    startActivity(new Intent(getApplicationContext(),Dashboard.class));
-                                    finish();
+
+                                    if(progress>=100){
+//                                        startActivity(new Intent(getApplicationContext(),Dashboard.class));
+                                        finish();
+                                    }
                                 }
                             });
                 }
