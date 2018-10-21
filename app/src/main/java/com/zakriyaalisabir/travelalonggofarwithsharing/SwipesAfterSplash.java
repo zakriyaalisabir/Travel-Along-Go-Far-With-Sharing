@@ -65,7 +65,7 @@ public class SwipesAfterSplash extends AppCompatActivity {
                 permission1!=PackageManager.PERMISSION_GRANTED||
                 permission2!=PackageManager.PERMISSION_GRANTED||
                 permission3!=PackageManager.PERMISSION_GRANTED||
-                permission4!=PackageManager.PERMISSION_GRANTED)
+                permission4!=PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
                     new String[]{
                             Manifest.permission.CAMERA,
@@ -77,6 +77,7 @@ public class SwipesAfterSplash extends AppCompatActivity {
 
                     },
                     0);
+        }
 
     }
 
