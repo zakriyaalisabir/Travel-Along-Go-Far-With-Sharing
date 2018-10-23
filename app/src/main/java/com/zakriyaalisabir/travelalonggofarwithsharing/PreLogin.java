@@ -73,20 +73,22 @@ public class PreLogin extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(),"User successfully Loged in ",Toast.LENGTH_LONG).show();
 
                                 if(confirmationStatus.equals("confirmed")){
+                                    progressDialog.dismiss();
                                     startActivity(new Intent(getApplicationContext(),Dashboard.class));
                                     finish();
                                 }else {
+                                    progressDialog.dismiss();
                                     startActivity(new Intent(getApplicationContext(),FirstTimeLoginForMobileNumberVerification.class));
                                     finish();
                                 }
 
-                                progressDialog.dismiss();
 
                             }
 
                             @Override
                             public void onCancelled(DatabaseError databaseError) {
 
+                                progressDialog.dismiss();
                             }
                         });
                     }
@@ -98,6 +100,7 @@ public class PreLogin extends AppCompatActivity {
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
 
+                    progressDialog.dismiss();
                 }
             });
         }
