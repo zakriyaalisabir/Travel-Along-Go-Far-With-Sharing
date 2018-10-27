@@ -5,8 +5,10 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -16,6 +18,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Register extends AppCompatActivity {
 
@@ -28,12 +33,18 @@ public class Register extends AppCompatActivity {
     private DatabaseReference mRef;
     private FirebaseUser user;
 
+
+    private Spinner sp;
+
+    private List<String> countryCodesList;
+    private ArrayAdapter<String> arrayAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        etPh=(EditText)findViewById(R.id.etPhone);
+        etPh=(EditText)findViewById(R.id.etPhoneForReg);
         etN=(EditText)findViewById(R.id.etName);
         etE=(EditText)findViewById(R.id.etEmail);
         etC=(EditText)findViewById(R.id.etCNIC);
@@ -42,11 +53,23 @@ public class Register extends AppCompatActivity {
         etCM=(EditText)findViewById(R.id.etCarModel);
         etCNum=(EditText)findViewById(R.id.etCarNumber);
         etCity=(EditText)findViewById(R.id.etCity);
+        sp=(Spinner)findViewById(R.id.spCCReg);
 
         btnR=(Button)findViewById(R.id.btnRegisterConfirm);
 
         mAuth=FirebaseAuth.getInstance();
         mRef= FirebaseDatabase.getInstance().getReference();
+
+
+        countryCodesList=new ArrayList<String>();
+
+        for(int i=1;i<=300;i++){
+            countryCodesList.add("+"+i);
+        }
+
+        arrayAdapter=new ArrayAdapter<String>(this,R.layout.my_spinner_item,countryCodesList);
+        arrayAdapter.notifyDataSetInvalidated();
+        sp.setAdapter(arrayAdapter);
 
         btnR.setOnClickListener(new View.OnClickListener() {
             @Override
