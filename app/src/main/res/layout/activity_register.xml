@@ -5,11 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="15dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
     android:background="@drawable/background"
     tools:context=".Register">
 
     <ScrollView
+        android:scrollbars="vertical"
+        android:fadeScrollbars="true"
         android:layout_centerHorizontal="true"
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
