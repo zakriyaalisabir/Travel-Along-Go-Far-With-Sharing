@@ -121,6 +121,9 @@ public class PostARide extends AppCompatActivity implements OnMapReadyCallback {
                     DownloadTask downloadTask=new DownloadTask();
 
                     downloadTask.execute(url);
+
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(arrayList.get(0)));
+                    mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
                 }
             }
         });
