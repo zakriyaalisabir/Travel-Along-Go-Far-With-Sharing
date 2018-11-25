@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.view.View;
@@ -75,6 +76,7 @@ public class Dashboard extends AppCompatActivity
         final TextView tvUE=(TextView)navHeaderView.findViewById(R.id.tvNavUserEmail);
 
         if(!isGpsEnabled){
+            Toast.makeText(getApplicationContext(),"Please enable gps ",Toast.LENGTH_LONG).show();
             Intent intent=new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
             startActivity(intent);
         }
@@ -144,25 +146,29 @@ public class Dashboard extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        Intent intent=new Intent(Dashboard.this,MapsActivity.class);
 
         if (id == R.id.nav_postARide) {
             // Handle the camera action
+            Intent intent=new Intent(Dashboard.this,PostARide.class);
             intent.putExtra("activity","postARide");
             startActivity(intent);
         } else if (id == R.id.nav_findARide) {
+            Intent intent=new Intent(Dashboard.this,MapsActivity.class);
             intent.putExtra("activity","findARide");
             startActivity(intent);
 
         } else if (id == R.id.nav_offerCargoSpace) {
+            Intent intent=new Intent(Dashboard.this,MapsActivity.class);
             intent.putExtra("activity","offerCargoSpace");
             startActivity(intent);
 
         } else if (id == R.id.nav_findCargoSpace) {
+            Intent intent=new Intent(Dashboard.this,MapsActivity.class);
             intent.putExtra("activity","findCargoSpace");
             startActivity(intent);
 
         } else if (id == R.id.nav_myTrustList) {
+            Intent intent=new Intent(Dashboard.this,MapsActivity.class);
             intent.putExtra("activity","myTrustList");
             startActivity(intent);
 

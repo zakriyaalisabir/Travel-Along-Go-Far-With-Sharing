@@ -37,6 +37,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         gpsEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
 

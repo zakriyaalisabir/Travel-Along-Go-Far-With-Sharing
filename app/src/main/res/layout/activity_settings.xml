@@ -1,9 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="30dp"
+    android:background="@drawable/background"
     tools:context=".UserSettings">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:textColor="#FF267C5F"
+            android:textStyle="bold"
+            android:textSize="35sp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="Select An Option"/>
+
+        <Button
+            android:layout_marginTop="30dp"
+            android:textSize="25sp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:text="CHANGE MOBILE NO."
+            android:id="@+id/btnChangeMobileNumber"
+            android:background="@drawable/round_button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <Button
+            android:layout_marginTop="20dp"
+            android:textSize="25sp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:text="CHANGE ACCOUNT TYPE"
+            android:id="@+id/btnChangeAccountType"
+            android:background="@drawable/round_button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

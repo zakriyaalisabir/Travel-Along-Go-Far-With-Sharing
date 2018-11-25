@@ -54,7 +54,8 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".PreLogin" />
         <activity android:name=".UserSettings" />
-        <activity android:name=".RegisterStep2"></activity>
+        <activity android:name=".RegisterStep2" />
+        <activity android:name=".PostARide"></activity>
     </application>
 
 </manifest>
