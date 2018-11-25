@@ -78,31 +78,31 @@
             </android.support.design.widget.TextInputLayout>
 
 
-            <LinearLayout
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
+            <!--<LinearLayout-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="50dp">-->
 
-                <Spinner
-                    android:id="@+id/spCCReg"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"></Spinner>
+                <!--<Spinner-->
+                    <!--android:id="@+id/spCCReg"-->
+                    <!--android:layout_width="100dp"-->
+                    <!--android:layout_height="50dp"></Spinner>-->
 
-                <EditText
-                    android:gravity="center"
-                    android:textAlignment="center"
-                    android:id="@+id/etPhoneForReg"
-                    android:textColor="#000000"
-                    android:textSize="25sp"
-                    android:inputType="number"
-                    android:maxLength="10"
-                    android:textStyle="bold"
-                    android:hint="Cell Number"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
+                <!--<EditText-->
+                    <!--android:gravity="center"-->
+                    <!--android:textAlignment="center"-->
+                    <!--android:id="@+id/etPhoneForReg"-->
+                    <!--android:textColor="#000000"-->
+                    <!--android:textSize="25sp"-->
+                    <!--android:inputType="number"-->
+                    <!--android:maxLength="10"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:hint="Cell Number"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="50dp" />-->
 
-            </LinearLayout>
+            <!--</LinearLayout>-->
 
             <!--<android.support.design.widget.TextInputLayout-->
                 <!--android:layout_below="@+id/tiLayout2"-->
@@ -129,7 +129,7 @@
 
 
             <android.support.design.widget.TextInputLayout
-                android:layout_below="@+id/tiLayout3"
+                android:layout_below="@+id/tiLayout2"
                 android:id="@+id/tiLayout4"
                 android:hint="CNIC"
                 android:textColorHint="#267c5f"

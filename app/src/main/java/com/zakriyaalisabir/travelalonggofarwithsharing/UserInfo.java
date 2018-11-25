@@ -16,6 +16,18 @@ public class UserInfo {
     UserInfo() {
     }
 
+    public UserInfo(String name, String email, String cnic, String city, String password, String carName, String carModel, String carNumber) {
+        this.name = name;
+        this.email = email;
+        this.cnic = cnic;
+        this.city = city;
+        this.password = password;
+        this.carName = carName;
+        this.carModel = carModel;
+        this.carNumber = carNumber;
+    }
+
+
     public UserInfo(String name, String email, String phone, String cnic, String city, String password, String carName, String carModel, String carNumber) {
         this.name = name;
         this.email = email;

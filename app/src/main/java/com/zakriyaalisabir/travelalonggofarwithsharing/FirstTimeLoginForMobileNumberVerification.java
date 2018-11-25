@@ -53,8 +53,12 @@ public class FirstTimeLoginForMobileNumberVerification extends AppCompatActivity
         mAuth=FirebaseAuth.getInstance();
 
         countryCodesList=new ArrayList<String>();
+        countryCodesList.add("+92");
 
         for(int i=1;i<=300;i++){
+            if(i==92){
+                continue;
+            }
             countryCodesList.add("+"+i);
         }
 

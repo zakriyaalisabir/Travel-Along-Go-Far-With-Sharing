@@ -1,6 +1,7 @@
 package com.zakriyaalisabir.travelalonggofarwithsharing;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -34,17 +35,17 @@ public class Register extends AppCompatActivity {
     private FirebaseUser user;
 
 
-    private Spinner sp;
+//    private Spinner sp;
 
-    private List<String> countryCodesList;
-    private ArrayAdapter<String> arrayAdapter;
+//    private List<String> countryCodesList;
+//    private ArrayAdapter<String> arrayAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        etPh=(EditText)findViewById(R.id.etPhoneForReg);
+//        etPh=(EditText)findViewById(R.id.etPhoneForReg);
         etN=(EditText)findViewById(R.id.etName);
         etE=(EditText)findViewById(R.id.etEmail);
         etC=(EditText)findViewById(R.id.etCNIC);
@@ -53,7 +54,7 @@ public class Register extends AppCompatActivity {
         etCM=(EditText)findViewById(R.id.etCarModel);
         etCNum=(EditText)findViewById(R.id.etCarNumber);
         etCity=(EditText)findViewById(R.id.etCity);
-        sp=(Spinner)findViewById(R.id.spCCReg);
+//        sp=(Spinner)findViewById(R.id.spCCReg);
 
         btnR=(Button)findViewById(R.id.btnRegisterConfirm);
 
@@ -61,15 +62,16 @@ public class Register extends AppCompatActivity {
         mRef= FirebaseDatabase.getInstance().getReference();
 
 
-        countryCodesList=new ArrayList<String>();
-
-        for(int i=1;i<=300;i++){
-            countryCodesList.add("+"+i);
-        }
-
-        arrayAdapter=new ArrayAdapter<String>(this,R.layout.my_spinner_item,countryCodesList);
-        arrayAdapter.notifyDataSetInvalidated();
-        sp.setAdapter(arrayAdapter);
+//        countryCodesList=new ArrayList<String>();
+//        countryCodesList.add("+92");
+//
+//        for(int i=1;i<=300;i++){
+//            countryCodesList.add("+"+i);
+//        }
+//
+//        arrayAdapter=new ArrayAdapter<String>(this,R.layout.my_spinner_item,countryCodesList);
+//        arrayAdapter.notifyDataSetInvalidated();
+//        sp.setAdapter(arrayAdapter);
 
         btnR.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +85,7 @@ public class Register extends AppCompatActivity {
 
                 name=etN.getText().toString().toUpperCase();
                 email=etE.getText().toString().toUpperCase();
-                phone=etPh.getText().toString().toUpperCase();
+//                phone=etPh.getText().toString().toUpperCase();
                 cnic=etC.getText().toString().toUpperCase();
                 password=etP.getText().toString().toUpperCase();
                 carName=etCN.getText().toString().toUpperCase();
@@ -91,19 +93,19 @@ public class Register extends AppCompatActivity {
                 carNumber=etCNum.getText().toString().toUpperCase();
                 city=etCity.getText().toString().toUpperCase();
 
-                if(name.isEmpty() || email.isEmpty() || phone.isEmpty() || cnic.isEmpty() || city.isEmpty() ||password.isEmpty()){
+                if(name.isEmpty() || email.isEmpty() || /*phone.isEmpty() ||*/ cnic.isEmpty() || city.isEmpty() ||password.isEmpty()){
                     Toast.makeText(getApplicationContext(),"Incomplete info",Toast.LENGTH_LONG).show();
                     progressDialog.dismiss();
                     return;
                 }
 
-                if(phone.length()<13){
-                    Toast.makeText(getApplicationContext(),"Enter phone number with country code",Toast.LENGTH_LONG).show();
-                    progressDialog.dismiss();
-                    return;
-                }
+//                if(phone.length()!=10){
+//                    Toast.makeText(getApplicationContext(),"Enter a valid phone number",Toast.LENGTH_LONG).show();
+//                    progressDialog.dismiss();
+//                    return;
+//                }
 
-                final UserInfo userInfo=new UserInfo(name,email,phone,cnic,city,password,carName,carModel,carNumber);
+                final UserInfo userInfo=new UserInfo(name,email,cnic,city,password,carName,carModel,carNumber);
 
 
                 mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -113,7 +115,8 @@ public class Register extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(),"User Successfully Registered",Toast.LENGTH_LONG).show();
                             user=mAuth.getCurrentUser();
                             mRef.child("users").child(user.getUid()).setValue(userInfo);
-                            mRef.child("confiredPhoneNumbers").child(userInfo.phone).setValue("notConfirmed");
+//                            mRef.child("confiredPhoneNumbers").child(userInfo.phone).setValue("notConfirmed");
+                            startActivity(new Intent(getApplicationContext(),FirstTimeLoginForMobileNumberVerification.class));
                             finish();
                         }else {
                             Toast.makeText(getApplicationContext(),"Registration Failed",Toast.LENGTH_LONG).show();

@@ -19,6 +19,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -134,19 +135,30 @@ public class Dashboard extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        Intent intent=new Intent(Dashboard.this,MapsActivity.class);
 
         if (id == R.id.nav_postARide) {
             // Handle the camera action
+            intent.putExtra("activity","postARide");
+            startActivity(intent);
         } else if (id == R.id.nav_findARide) {
+            intent.putExtra("activity","findARide");
+            startActivity(intent);
 
         } else if (id == R.id.nav_offerCargoSpace) {
+            intent.putExtra("activity","offerCargoSpace");
+            startActivity(intent);
 
         } else if (id == R.id.nav_findCargoSpace) {
+            intent.putExtra("activity","findCargoSpace");
+            startActivity(intent);
 
         } else if (id == R.id.nav_myTrustList) {
+            intent.putExtra("activity","myTrustList");
+            startActivity(intent);
 
         } else if (id == R.id.nav_about) {
-
+            Toast.makeText(getApplicationContext(),"About App in dialog box",Toast.LENGTH_LONG).show();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
