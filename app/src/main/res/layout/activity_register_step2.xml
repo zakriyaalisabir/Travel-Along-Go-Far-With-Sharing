@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    android:background="@drawable/background"
+    tools:context=".RegisterStep2">
+
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="#267c5f"
+            android:text="Enter Car Details"
+            />
+
+        <android.support.design.widget.TextInputLayout
+        android:id="@+id/tiLayout1"
+            android:layout_marginTop="30dp"
+        android:hint="Car Name"
+        android:textColorHint="#267c5f"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+            <EditText
+                android:textStyle="bold"
+                android:textColor="#267c5f"
+                android:textSize="20sp"
+                android:textColorHint="#267c5f"
+                android:hint="Car Name"
+                android:id="@+id/etCarName"
+                android:inputType="text"
+                android:maxLength="13"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_marginTop="10dp"
+            android:id="@+id/tiLayout2"
+            android:hint="Car Model"
+            android:textColorHint="#267c5f"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <EditText
+                android:textStyle="bold"
+                android:textColor="#267c5f"
+                android:textSize="20sp"
+                android:textColorHint="#267c5f"
+                android:hint="Car Model"
+                android:id="@+id/etCarModel"
+                android:inputType="text"
+                android:maxLength="13"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_marginTop="10dp"
+            android:id="@+id/tiLayout3"
+            android:hint="Car No"
+            android:textColorHint="#267c5f"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <EditText
+                android:textStyle="bold"
+                android:textColor="#267c5f"
+                android:textSize="20sp"
+                android:textColorHint="#267c5f"
+                android:hint="Car No"
+                android:id="@+id/etCarNo"
+                android:inputType="text"
+                android:maxLength="13"
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+
+        <Button
+            android:layout_marginTop="20dp"
+            android:textSize="25sp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:text="REGISTER"
+            android:id="@+id/btnRegister"
+            android:layout_below="@+id/btnRegister"
+            android:background="@drawable/round_button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -19,7 +19,8 @@
             android:src="@drawable/background"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:scaleType="fitXY"/>
+            android:scaleType="fitXY"
+            />
 
         <Button
             android:layout_marginTop="15dp"

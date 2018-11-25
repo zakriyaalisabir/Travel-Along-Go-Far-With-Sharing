@@ -104,28 +104,7 @@
 
             <!--</LinearLayout>-->
 
-            <!--<android.support.design.widget.TextInputLayout-->
-                <!--android:layout_below="@+id/tiLayout2"-->
-                <!--android:id="@+id/tiLayout3"-->
-                <!--android:hint="Phone"-->
-                <!--android:textColorHint="#267c5f"-->
-                <!--android:gravity="center"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="50dp">-->
 
-                <!--<EditText-->
-                    <!--android:textStyle="bold"-->
-                    <!--android:textColor="#267c5f"-->
-                    <!--android:textSize="20sp"-->
-                    <!--android:textColorHint="#267c5f"-->
-                    <!--android:hint="Phone"-->
-                    <!--android:id="@+id/etPhone"-->
-                    <!--android:inputType="phone"-->
-                    <!--android:maxLength="13"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="50dp" />-->
-
-            <!--</android.support.design.widget.TextInputLayout>-->
 
 
             <android.support.design.widget.TextInputLayout
@@ -199,86 +178,67 @@
 
             </android.support.design.widget.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_below="@+id/tiLayout5"
-                android:id="@+id/tiLayout6"
-                android:hint="Car Name (For Provider)"
-                android:textColorHint="#267c5f"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="Select Account Type"
                 android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
+                android:textColor="#267c5f"
+                android:textStyle="bold"
+                android:textSize="25sp"/>
 
-                <EditText
-                    android:hint="Car Name (For Provider)"
-                    android:textStyle="bold"
-                    android:textColor="#267c5f"
-                    android:textSize="20sp"
-                    android:textColorHint="#267c5f"
-                    android:id="@+id/etCarName"
-                    android:inputType="text"
+            <RelativeLayout
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_gravity="center_horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp" />
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
 
-            </android.support.design.widget.TextInputLayout>
+                    <RadioButton
+                        android:id="@+id/radioA"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:textColor="#267c5f"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:checked="true"
+                        android:text="Ride Acquirer"/>
+                    <RadioButton
+                        android:id="@+id/radioR"
+                        android:textStyle="bold"
+                        android:textColor="#267c5f"
+                        android:textSize="18sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:text="Ride Provider"/>
+                    <RadioButton
+                        android:id="@+id/radioB"
+                        android:textSize="18sp"
+                        android:textColor="#267c5f"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:text="Both"/>
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_below="@+id/tiLayout6"
-                android:id="@+id/tiLayout7"
-                android:hint="Car Model (For Provider)"
-                android:textColorHint="#267c5f"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <EditText
-                    android:hint="Car Model (For Provider)"
-                    android:textStyle="bold"
-                    android:textColor="#267c5f"
-                    android:textSize="20sp"
-                    android:textColorHint="#267c5f"
-                    android:id="@+id/etCarModel"
-                    android:inputType="text"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_below="@+id/tiLayout7"
-                android:id="@+id/tiLayout8"
-                android:hint="Car Number (For Provider)"
-                android:textColorHint="#267c5f"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-                <EditText
-                    android:hint="Car Number (For Provider)"
-                    android:textStyle="bold"
-                    android:textColor="#267c5f"
-                    android:textSize="20sp"
-                    android:textColorHint="#267c5f"
-                    android:id="@+id/etCarNumber"
-                    android:inputType="text"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
-
-            </android.support.design.widget.TextInputLayout>
+                </RadioGroup>
+            </RelativeLayout>
 
             <Button
-                android:layout_marginTop="5dp"
-                android:id="@+id/btnRegisterConfirm"
+                android:layout_marginTop="20dp"
                 android:textSize="25sp"
                 android:textColor="#ffffff"
                 android:textStyle="bold"
                 android:gravity="center"
                 android:textAlignment="center"
-                android:text="REGISTER"
-                android:layout_below="@+id/tiLayout8"
+                android:text="PROCEED"
+                android:id="@+id/btnRegisterConfirm"
                 android:background="@drawable/round_button"
                 android:layout_width="match_parent"
                 android:layout_height="50dp" />
-
 
         </LinearLayout>
 

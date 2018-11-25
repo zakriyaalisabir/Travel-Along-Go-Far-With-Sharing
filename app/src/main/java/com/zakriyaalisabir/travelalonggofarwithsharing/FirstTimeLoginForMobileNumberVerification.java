@@ -32,7 +32,7 @@ public class FirstTimeLoginForMobileNumberVerification extends AppCompatActivity
     private String cellNo;
     private String pinAsMsg,enteredPin;
 
-    private DatabaseReference mRef;
+    private DatabaseReference mRef,mRef1;
     private FirebaseAuth mAuth;
 
     @Override
@@ -50,6 +50,7 @@ public class FirstTimeLoginForMobileNumberVerification extends AppCompatActivity
         etp.setVisibility(View.INVISIBLE);
 
         mRef= FirebaseDatabase.getInstance().getReference("confiredPhoneNumbers");
+        mRef1= FirebaseDatabase.getInstance().getReference("users");
         mAuth=FirebaseAuth.getInstance();
 
         countryCodesList=new ArrayList<String>();
@@ -116,6 +117,7 @@ public class FirstTimeLoginForMobileNumberVerification extends AppCompatActivity
 
                 if(enteredPin.equals(pinAsMsg)){
                     mRef.child(cellNo).setValue("confirmed");
+                    mRef1.child(mAuth.getCurrentUser().getUid().toString()).child("phone").setValue(cellNo.toString());
                     startActivity(new Intent(getApplicationContext(),UploadCnicAfterMobileNumberConfirmation.class));
                     finish();
                 }else {

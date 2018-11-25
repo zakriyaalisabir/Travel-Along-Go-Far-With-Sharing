@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -25,53 +27,38 @@ import java.util.List;
 
 public class Register extends AppCompatActivity {
 
-    private EditText etN,etE,etPh,etC,etP,etCN,etCM,etCNum,etCity;
+    private EditText etN,etE,etC,etP,etCity;
     private Button btnR;
 
-    private String name,email,phone,cnic,city,password,carName,carModel,carNumber;
+    private String name,email,cnic,city,password,accountType,carName,carModel,carNumber;
 
     private FirebaseAuth mAuth;
     private DatabaseReference mRef;
     private FirebaseUser user;
 
 
-//    private Spinner sp;
-
-//    private List<String> countryCodesList;
-//    private ArrayAdapter<String> arrayAdapter;
+    private RadioGroup rg;
+    private RadioButton rb;
+    private int radioSelId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-//        etPh=(EditText)findViewById(R.id.etPhoneForReg);
         etN=(EditText)findViewById(R.id.etName);
         etE=(EditText)findViewById(R.id.etEmail);
         etC=(EditText)findViewById(R.id.etCNIC);
         etP=(EditText)findViewById(R.id.etPassword);
-        etCN=(EditText)findViewById(R.id.etCarName);
-        etCM=(EditText)findViewById(R.id.etCarModel);
-        etCNum=(EditText)findViewById(R.id.etCarNumber);
         etCity=(EditText)findViewById(R.id.etCity);
-//        sp=(Spinner)findViewById(R.id.spCCReg);
+        rg=(RadioGroup)findViewById(R.id.radioGroup);
+
 
         btnR=(Button)findViewById(R.id.btnRegisterConfirm);
 
         mAuth=FirebaseAuth.getInstance();
         mRef= FirebaseDatabase.getInstance().getReference();
 
-
-//        countryCodesList=new ArrayList<String>();
-//        countryCodesList.add("+92");
-//
-//        for(int i=1;i<=300;i++){
-//            countryCodesList.add("+"+i);
-//        }
-//
-//        arrayAdapter=new ArrayAdapter<String>(this,R.layout.my_spinner_item,countryCodesList);
-//        arrayAdapter.notifyDataSetInvalidated();
-//        sp.setAdapter(arrayAdapter);
 
         btnR.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,28 +72,21 @@ public class Register extends AppCompatActivity {
 
                 name=etN.getText().toString().toUpperCase();
                 email=etE.getText().toString().toUpperCase();
-//                phone=etPh.getText().toString().toUpperCase();
                 cnic=etC.getText().toString().toUpperCase();
                 password=etP.getText().toString().toUpperCase();
-                carName=etCN.getText().toString().toUpperCase();
-                carModel=etCM.getText().toString().toUpperCase();
-                carNumber=etCNum.getText().toString().toUpperCase();
                 city=etCity.getText().toString().toUpperCase();
 
-                if(name.isEmpty() || email.isEmpty() || /*phone.isEmpty() ||*/ cnic.isEmpty() || city.isEmpty() ||password.isEmpty()){
+                if(name.isEmpty() || email.isEmpty() || cnic.isEmpty() || city.isEmpty() ||password.isEmpty()){
                     Toast.makeText(getApplicationContext(),"Incomplete info",Toast.LENGTH_LONG).show();
                     progressDialog.dismiss();
                     return;
                 }
 
-//                if(phone.length()!=10){
-//                    Toast.makeText(getApplicationContext(),"Enter a valid phone number",Toast.LENGTH_LONG).show();
-//                    progressDialog.dismiss();
-//                    return;
-//                }
+                radioSelId=rg.getCheckedRadioButtonId();
+                rb=(RadioButton)findViewById(radioSelId);
+                accountType=rb.getText().toString();
 
-                final UserInfo userInfo=new UserInfo(name,email,cnic,city,password,carName,carModel,carNumber);
-
+                final UserInfo userInfo=new UserInfo(name,email,"",cnic,city,password,accountType,"","","");
 
                 mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -115,9 +95,14 @@ public class Register extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(),"User Successfully Registered",Toast.LENGTH_LONG).show();
                             user=mAuth.getCurrentUser();
                             mRef.child("users").child(user.getUid()).setValue(userInfo);
-//                            mRef.child("confiredPhoneNumbers").child(userInfo.phone).setValue("notConfirmed");
-                            startActivity(new Intent(getApplicationContext(),FirstTimeLoginForMobileNumberVerification.class));
-                            finish();
+
+                            if (accountType.equals("Ride Provider")){
+                                startActivity(new Intent(getApplicationContext(),RegisterStep2.class));
+                                finish();
+                            }else {
+                                startActivity(new Intent(getApplicationContext(),FirstTimeLoginForMobileNumberVerification.class));
+                                finish();
+                            }
                         }else {
                             Toast.makeText(getApplicationContext(),"Registration Failed",Toast.LENGTH_LONG).show();
                         }

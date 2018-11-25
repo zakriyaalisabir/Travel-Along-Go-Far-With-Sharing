@@ -61,6 +61,7 @@ public class SwipesAfterSplash extends AppCompatActivity {
         int permission3= ContextCompat.checkSelfPermission(SwipesAfterSplash.this,Manifest.permission.READ_EXTERNAL_STORAGE);
         int permission4= ContextCompat.checkSelfPermission(SwipesAfterSplash.this,Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
+
         if(permission!=PackageManager.PERMISSION_GRANTED ||
                 permission1!=PackageManager.PERMISSION_GRANTED||
                 permission2!=PackageManager.PERMISSION_GRANTED||

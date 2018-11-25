@@ -11,24 +11,14 @@ public class UserInfo {
     public String carName;
     public String carModel;
     public String carNumber;
+    public String accountType;
 
 
     UserInfo() {
     }
 
-    public UserInfo(String name, String email, String cnic, String city, String password, String carName, String carModel, String carNumber) {
-        this.name = name;
-        this.email = email;
-        this.cnic = cnic;
-        this.city = city;
-        this.password = password;
-        this.carName = carName;
-        this.carModel = carModel;
-        this.carNumber = carNumber;
-    }
 
-
-    public UserInfo(String name, String email, String phone, String cnic, String city, String password, String carName, String carModel, String carNumber) {
+    public UserInfo(String name, String email, String phone, String cnic, String city, String password,String accountType, String carName, String carModel, String carNumber) {
         this.name = name;
         this.email = email;
         this.phone = phone;
@@ -38,6 +28,7 @@ public class UserInfo {
         this.carName = carName;
         this.carModel = carModel;
         this.carNumber = carNumber;
+        this.accountType=accountType;
     }
 
 }
