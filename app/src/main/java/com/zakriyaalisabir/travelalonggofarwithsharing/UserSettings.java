@@ -3,7 +3,7 @@ package com.zakriyaalisabir.travelalonggofarwithsharing;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Settings extends AppCompatActivity {
+public class UserSettings extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

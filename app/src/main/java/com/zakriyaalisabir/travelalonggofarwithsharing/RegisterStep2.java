@@ -1,6 +1,7 @@
 package com.zakriyaalisabir.travelalonggofarwithsharing;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -69,9 +70,9 @@ public class RegisterStep2 extends AppCompatActivity {
         btnR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                carName=etCN.getText().toString();
-                carModel=etCM.getText().toString();
-                carNumber=etCNo.getText().toString();
+                carName=etCN.getText().toString().toUpperCase();
+                carModel=etCM.getText().toString().toUpperCase();
+                carNumber=etCNo.getText().toString().toUpperCase();
 
                 if(carModel.isEmpty() || carNumber.isEmpty() || carName.isEmpty()){
                     Toast.makeText(getApplicationContext(),"Invalid Details",Toast.LENGTH_LONG).show();
@@ -81,6 +82,9 @@ public class RegisterStep2 extends AppCompatActivity {
                 mRef.child("carModel").setValue(carModel);
                 mRef.child("carName").setValue(carName);
                 mRef.child("carNumber").setValue(carNumber);
+
+                startActivity(new Intent(getApplicationContext(),FirstTimeLoginForMobileNumberVerification.class));
+                finish();
 
             }
         });

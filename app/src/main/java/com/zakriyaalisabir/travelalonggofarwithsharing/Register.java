@@ -71,9 +71,9 @@ public class Register extends AppCompatActivity {
                 progressDialog.show();
 
                 name=etN.getText().toString().toUpperCase();
-                email=etE.getText().toString().toUpperCase();
+                email=etE.getText().toString();
                 cnic=etC.getText().toString().toUpperCase();
-                password=etP.getText().toString().toUpperCase();
+                password=etP.getText().toString();
                 city=etCity.getText().toString().toUpperCase();
 
                 if(name.isEmpty() || email.isEmpty() || cnic.isEmpty() || city.isEmpty() ||password.isEmpty()){
@@ -96,7 +96,7 @@ public class Register extends AppCompatActivity {
                             user=mAuth.getCurrentUser();
                             mRef.child("users").child(user.getUid()).setValue(userInfo);
 
-                            if (accountType.equals("Ride Provider")){
+                            if (accountType.equals("Ride Provider Or Both")){
                                 startActivity(new Intent(getApplicationContext(),RegisterStep2.class));
                                 finish();
                             }else {

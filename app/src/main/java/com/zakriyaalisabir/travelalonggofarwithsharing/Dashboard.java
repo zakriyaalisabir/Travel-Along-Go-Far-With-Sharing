@@ -1,13 +1,12 @@
 package com.zakriyaalisabir.travelalonggofarwithsharing;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Location;
-import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -44,6 +43,9 @@ public class Dashboard extends AppCompatActivity
     private FirebaseUser mUser;
     private DatabaseReference mRef;
 
+    private boolean isGpsEnabled;
+    private LocationManager locationManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,10 +57,11 @@ public class Dashboard extends AppCompatActivity
         mUser=mAuth.getCurrentUser();
         mRef= FirebaseDatabase.getInstance().getReference("users").child(mUser.getUid());
 
-
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        locationManager=(LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
+        isGpsEnabled=locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -70,6 +73,11 @@ public class Dashboard extends AppCompatActivity
         View navHeaderView=navigationView.getHeaderView(0);
         final TextView tvUN=(TextView)navHeaderView.findViewById(R.id.tvNavUserName);
         final TextView tvUE=(TextView)navHeaderView.findViewById(R.id.tvNavUserEmail);
+
+        if(!isGpsEnabled){
+            Intent intent=new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+            startActivity(intent);
+        }
 
         mRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -119,7 +127,7 @@ public class Dashboard extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            startActivity(new Intent(getApplicationContext(),Settings.class));
+            startActivity(new Intent(getApplicationContext(),UserSettings.class));
             return true;
         }else if (id == R.id.action_logout) {
             mAuth.signOut();

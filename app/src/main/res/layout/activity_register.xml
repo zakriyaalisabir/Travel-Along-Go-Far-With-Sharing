@@ -214,15 +214,7 @@
                         android:textSize="18sp"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
-                        android:text="Ride Provider"/>
-                    <RadioButton
-                        android:id="@+id/radioB"
-                        android:textSize="18sp"
-                        android:textColor="#267c5f"
-                        android:textStyle="bold"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:text="Both"/>
+                        android:text="Ride Provider Or Both"/>
 
                 </RadioGroup>
             </RelativeLayout>

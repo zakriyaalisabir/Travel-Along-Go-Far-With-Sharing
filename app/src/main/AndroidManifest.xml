@@ -53,7 +53,7 @@
             android:label="@string/title_activity_dashboard"
             android:theme="@style/AppTheme" />
         <activity android:name=".PreLogin" />
-        <activity android:name=".Settings" />
+        <activity android:name=".UserSettings" />
         <activity android:name=".RegisterStep2"></activity>
     </application>
 
