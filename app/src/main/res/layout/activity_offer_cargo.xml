@@ -5,8 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="30dp"
     android:background="@drawable/background"
-    tools:context=".PostARide">
+    tools:context=".OfferCargo">
 
     <LinearLayout
         android:layout_margin="15dp"
@@ -91,21 +92,21 @@
             android:layout_marginTop="5dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:hint="Seats Available"
+            android:hint="Bags (KG's)"
             android:textColorHint="#267c5f"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="50dp">
 
             <EditText
-                android:hint="Seats Available"
+                android:hint="Bags (KG's)"
                 android:textStyle="bold"
                 android:textColor="#267c5f"
                 android:textSize="20sp"
                 android:textColorHint="#267c5f"
-                android:id="@+id/etSeatsAvailable"
+                android:id="@+id/etBagsKg"
                 android:inputType="number"
-                android:maxLength="1"
+                android:maxLength="3"
                 android:layout_width="match_parent"
                 android:layout_height="50dp" />
 
@@ -122,19 +123,12 @@
             android:gravity="center"
             android:textAlignment="center"
             android:text="SUBMIT"
-            android:id="@+id/btnSubmitRide"
+            android:id="@+id/btnSubmitCargoOffered"
             android:background="@drawable/round_button"
             android:layout_width="match_parent"
             android:layout_height="50dp" />
 
 
     </LinearLayout>
-
-    <!--<include-->
-        <!--android:layout_below="@+id/linearLayout1"-->
-        <!--layout="@layout/activity_maps"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent" />-->
-
 
 </RelativeLayout>

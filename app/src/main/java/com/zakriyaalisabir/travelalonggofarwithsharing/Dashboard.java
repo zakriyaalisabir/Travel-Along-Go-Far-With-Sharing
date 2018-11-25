@@ -158,7 +158,7 @@ public class Dashboard extends AppCompatActivity
             startActivity(intent);
 
         } else if (id == R.id.nav_offerCargoSpace) {
-            Intent intent=new Intent(Dashboard.this,MapsActivity.class);
+            Intent intent=new Intent(Dashboard.this,OfferCargo.class);
             intent.putExtra("activity","offerCargoSpace");
             startActivity(intent);
 

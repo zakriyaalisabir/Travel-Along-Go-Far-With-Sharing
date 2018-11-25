@@ -55,7 +55,8 @@
         <activity android:name=".PreLogin" />
         <activity android:name=".UserSettings" />
         <activity android:name=".RegisterStep2" />
-        <activity android:name=".PostARide"></activity>
+        <activity android:name=".PostARide" />
+        <activity android:name=".OfferCargo"></activity>
     </application>
 
 </manifest>
